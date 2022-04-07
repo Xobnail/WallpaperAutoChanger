@@ -1,0 +1,15 @@
+/home/nail/Projects/WallpaperAutoChanger/bin/Debug/net6.0/WallpaperAutoChanger
+/home/nail/Projects/WallpaperAutoChanger/bin/Debug/net6.0/WallpaperAutoChanger.deps.json
+/home/nail/Projects/WallpaperAutoChanger/bin/Debug/net6.0/WallpaperAutoChanger.runtimeconfig.json
+/home/nail/Projects/WallpaperAutoChanger/bin/Debug/net6.0/WallpaperAutoChanger.dll
+/home/nail/Projects/WallpaperAutoChanger/bin/Debug/net6.0/WallpaperAutoChanger.pdb
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.csproj.AssemblyReference.cache
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.GeneratedMSBuildEditorConfig.editorconfig
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.AssemblyInfoInputs.cache
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.AssemblyInfo.cs
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.csproj.CoreCompileInputs.cache
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.dll
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/refint/WallpaperAutoChanger.dll
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.pdb
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/WallpaperAutoChanger.genruntimeconfig.cache
+/home/nail/Projects/WallpaperAutoChanger/obj/Debug/net6.0/ref/WallpaperAutoChanger.dll
