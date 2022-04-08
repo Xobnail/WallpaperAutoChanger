@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ShellHelper.Bash("gsettings set org.gnome.desktop.background picture-uri file:///home/nail/Projects/WallpaperAutoChanger/img/castle.jpg");
         }
     }
 }
