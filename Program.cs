@@ -1,4 +1,6 @@
-﻿namespace WallpaperAutoChanger
+﻿using Npgsql.EntityFrameworkCore.PostgreSQL;
+
+namespace WallpaperAutoChanger
 {
     class Program
     {
