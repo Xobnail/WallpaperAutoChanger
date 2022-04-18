@@ -11,29 +11,37 @@ namespace WallpaperAutoChanger
 
         static void Main(string[] args)
         {
+            int period;
+
+            if (args.Length == 0)
+            {
+                period = 60000;
+                System.Console.WriteLine("Using default value for period - 60000 ms");
+            }
+            else
+            {
+                if (!Int32.TryParse(args[0], out period))
+                {
+                    System.Console.WriteLine("Error! Incorrect period value. Try again. Specify in milliseconds.");
+                    System.Console.WriteLine("For example: ../WallpaperAutoChanger 10000");
+                    return;
+                }
+            }
             using (wallpapersdbContext db = new wallpapersdbContext())
             {
                 wallpapers = db.Wallpapers.ToList();
-                
-                foreach (Wallpaper wp in wallpapers)
-                {
-                    Console.WriteLine($"{wp.Id}.{wp.Url}");
-                }
             }
-
             wallpapersEnumerator = wallpapers.GetEnumerator();
-
-            SetTimer();
+            SetTimer(period);
             Console.WriteLine("Press any key to exit");
             Console.Read();
             timer.Stop();
             timer.Dispose();
+
         }
-        private static void SetTimer()
+        private static void SetTimer(int period)
         {
-            // Create a timer with a two second interval.
-            timer = new System.Timers.Timer(5000);
-            // Hook up the Elapsed event for the timer. 
+            timer = new System.Timers.Timer(period);
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
             timer.Enabled = true;
@@ -41,15 +49,13 @@ namespace WallpaperAutoChanger
 
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            if(!wallpapersEnumerator.MoveNext())
+            if (!wallpapersEnumerator.MoveNext())
             {
                 wallpapersEnumerator.Reset();
                 wallpapersEnumerator.MoveNext();
             }
             var imageUrl = (Wallpaper)wallpapersEnumerator.Current;
             ShellHelper.Bash("gsettings set org.gnome.desktop.background picture-uri file://" + imageUrl.Url);
-
-
         }
     }
 }
