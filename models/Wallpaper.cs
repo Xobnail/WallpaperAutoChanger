@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace WallpaperAutoChanger
+﻿namespace WallpaperAutoChanger
 {
     public partial class Wallpaper
     {

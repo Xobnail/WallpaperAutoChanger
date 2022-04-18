@@ -5,9 +5,9 @@ namespace WallpaperAutoChanger
 {
     class Program
     {
-        private static System.Timers.Timer timer;
-        private static List<Wallpaper>? wallpapers;
-        private static IEnumerator wallpapersEnumerator;
+        private static System.Timers.Timer _timer;
+        private static List<Wallpaper> _wallpapers;
+        private static IEnumerator _wallpapersEnumerator;
 
         static void Main(string[] args)
         {
@@ -29,32 +29,32 @@ namespace WallpaperAutoChanger
             }
             using (wallpapersdbContext db = new wallpapersdbContext())
             {
-                wallpapers = db.Wallpapers.ToList();
+                _wallpapers = db.Wallpapers.ToList();
             }
-            wallpapersEnumerator = wallpapers.GetEnumerator();
+            _wallpapersEnumerator = _wallpapers.GetEnumerator();
             SetTimer(period);
             Console.WriteLine("Press any key to exit");
             Console.Read();
-            timer.Stop();
-            timer.Dispose();
+            _timer.Stop();
+            _timer.Dispose();
 
         }
         private static void SetTimer(int period)
         {
-            timer = new System.Timers.Timer(period);
-            timer.Elapsed += OnTimedEvent;
-            timer.AutoReset = true;
-            timer.Enabled = true;
+            _timer = new System.Timers.Timer(period);
+            _timer.Elapsed += OnTimedEvent;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
         }
 
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            if (!wallpapersEnumerator.MoveNext())
+            if (!_wallpapersEnumerator.MoveNext())
             {
-                wallpapersEnumerator.Reset();
-                wallpapersEnumerator.MoveNext();
+                _wallpapersEnumerator.Reset();
+                _wallpapersEnumerator.MoveNext();
             }
-            var imageUrl = (Wallpaper)wallpapersEnumerator.Current;
+            var imageUrl = (Wallpaper)_wallpapersEnumerator.Current;
             ShellHelper.Bash("gsettings set org.gnome.desktop.background picture-uri file://" + imageUrl.Url);
         }
     }
